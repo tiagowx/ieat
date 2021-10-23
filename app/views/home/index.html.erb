@@ -1,2 +1,10 @@
 <h1>Home#index</h1>
-<p>Hello <%= @email%></p>
+<p>Hello <%= @email %></p>
+
+<% if user_singned_in? %>
+    <% if current_user.restaurant? %>
+        <%= render "restaurant" %>
+    <% elseif current_user.customer? %>
+        <% render "customer" %>
+    <% end %>
+<% end %>
